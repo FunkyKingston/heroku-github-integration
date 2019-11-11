@@ -1,5 +1,3 @@
 {
-  "name": "github-integration",
-  "description": "integrating heroku with github, and using review apps for continuous delivery"
+  "name": "github-integration"
 }
-  
