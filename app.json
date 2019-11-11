@@ -1,0 +1,6 @@
+{
+  "name": "GitHub integration",
+  "description": "Heroku integrated with GitHub, using review apps and continuous deployment",
+  "repository": "https://github.com/FunkyKingston/heroku-github-integration",
+  "keywords": ["python", "github", "integration"]
+}
