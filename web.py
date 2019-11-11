@@ -4,10 +4,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return 'Hello World!'
+  return 'Hello World!'
 	
-if __name__ == '__main__'
-	app.run(debug=True)
+#if __name__ == '__main__'
+#  app.run(debug=True)
 
 # Question: Is it necessary to include app.run()? 
 # Answer: The run-command runs flask's internal web-server so the app can be tested locally. If however Apache, NGINX or some other web server loads your app it runs directly on the server
