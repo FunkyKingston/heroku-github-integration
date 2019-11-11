@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
   #return 'Hello World from Heroku, integrated with GitHub!'
-  return render_template('home.html')
+  return render_template('home.html', var=__name__)
 
 
 # About
@@ -23,7 +23,8 @@ def articles():
 	
 	
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run()
+  #app.run(debug=True)
 
 # Question: Is it necessary to include app.run()? 
 # Answer: The run-command runs flask's internal web-server so the app can be tested locally. If however Apache, NGINX or some other web server loads your app it runs directly on the server
