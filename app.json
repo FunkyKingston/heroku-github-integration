@@ -1,17 +1,5 @@
 {
   "name": "github-integration",
-  "scripts": {},
-  "env": {},
-  "formation": {
-    "web": {
-	  "quantity": 1
-	}
-  },
-  "addons": [],
-  "buildpacks": [
-    {
-	  "url": "heroku/python"
-	}
-  ]
+  "description": "integrating heroku with github, and using review apps for continuous delivery"
 }
   
