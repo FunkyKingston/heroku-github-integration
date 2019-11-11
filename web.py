@@ -22,7 +22,7 @@ def articles():
     return render_template('articles.html')
 	
 	
-#if __name__ == '__main__'
+#if __name__ == '__main__':
 #  app.run(debug=True)
 
 # Question: Is it necessary to include app.run()? 
