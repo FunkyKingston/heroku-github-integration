@@ -3,8 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-  return 'Hello World from Heroku, integrated with GitHub!'
+def home():
+  #return 'Hello World from Heroku, integrated with GitHub!'
+  return render_template('home.html')
 
 #if __name__ == '__main__'
 #  app.run(debug=True)
