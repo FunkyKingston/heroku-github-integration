@@ -1,6 +1,22 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+#from flask_sqlalchemy import SQLAlchemy
+
+# from .dbmanagement.. (relative path) only works from __init__.py (?)
+from dbmanagement import db, Articles
 
 app = Flask(__name__)
+
+ENV = 'dev'
+
+if ENV == 'dev':
+  app.debug = True
+  app.config['SQLALCHEMY_DATABASE_URI'] = ''
+else:
+  app.debug = False
+  app.config['SQLALCHEMY_DATABASE_URI'] = ''
+
+#db = SQLAlchemy(app) # db = SQLAlchemy() created in dbmanagement.py
+db.init_app(app)
 
 
 # Home
