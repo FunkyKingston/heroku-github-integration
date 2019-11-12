@@ -1,9 +1,14 @@
 # heroku-github-integration
 
+## Heroku's continuous delivery workflow
 
-The initial idea of this repository is to try out Heroku's continuous delivery workflow, connecting a Heroku *pipeline* (https://devcenter.heroku.com/articles/pipelines) to this GitHub repository and enabling *review apps* (https://devcenter.heroku.com/articles/review-apps-new) to review code changes in apps separate from the production app. To this end, the following excellent tutorial was followed:
+The main idea of this repository is to try out Heroku's continuous delivery workflow, connecting a Heroku *pipeline* (https://devcenter.heroku.com/articles/pipelines) to this GitHub repository and enabling *review apps* (https://devcenter.heroku.com/articles/review-apps-new) to review code changes in apps separate from the public-facing production app. To this end, the following excellent tutorial was used for guidance:
 - *Continuous Delivery with Heroku and GitHub*, https://www.youtube.com/watch?v=_tiecDrW6yY
 
+To try out review apps, a second (local) git branch (e.g. named *develop*), was used to push code to GitHub and create pull requests into the master branch on GitHub using its GUI. This second branch is currently deleted from the repository.
+
+
+## Hosting a Flask app using Heroku and Heroku Add-ons
 
 In addition, in order to showcase some additional Heroku configuration steps, this repository contains a small Flask app, connected to a PostgreSQL database provided by the *Heroku Postgres Add-on* service, https://elements.heroku.com/addons/heroku-postgresql. For example, this means that we need to play around with Heroku *Config Vars*, https://devcenter.heroku.com/articles/config-vars.
 
