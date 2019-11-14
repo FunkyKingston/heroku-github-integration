@@ -1,22 +1,25 @@
+# Standard library imports
+import os
+# Third party imports
 from flask import Flask, render_template, request
-#from flask_sqlalchemy import SQLAlchemy
-
-# from .dbmanagement.. (relative path) only works from __init__.py (?)
+# Local application imports
 from dbmanagement import db, Articles
+#import dbmanagement # -> would need to use (namespace) dbmanagement.db, dbmanagement.articles
+
 
 app = Flask(__name__)
+config_file = 'config.py'
+app.config.from_pyfile(config_file) # (runs config.py) option to configuring in this file using e.g. app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# alternative, about using app.config.from_envvar(), https://www.youtube.com/watch?v=7RWro4VF_9c
 
-ENV = 'dev'
 
-if ENV == 'dev':
-  app.debug = True
-  app.config['SQLALCHEMY_DATABASE_URI'] = ''
-else:
-  app.debug = False
-  app.config['SQLALCHEMY_DATABASE_URI'] = ''
+print("db:", db)
 
-#db = SQLAlchemy(app) # db = SQLAlchemy() created in dbmanagement.py
-db.init_app(app)
+# Introduction into Contexts https://flask-sqlalchemy.palletsprojects.com/en/2.x/contexts/
+app.app_context().push()
+db.init_app(app) # now, from python running in a terminal >>> from app import db >>> db.create_all() 
+print("db:", db)
+
 
 
 # Home
@@ -40,7 +43,10 @@ def articles():
 	
 # when ran on heroku, __name__ is set to "web", since if this file is being imported from another module, __name__ isset to that module’s name.
 if __name__ == '__main__':
+  os.environ['ENV'] = 'dev'
   app.run(debug=True)
+else:
+  os.environ['ENV'] = 'prod'
 
 # Question: Is it necessary to include app.run()? 
 # Answer: The run-command runs flask's internal web-server so the app can be tested locally. If however Apache, NGINX or some other web server loads your app it runs directly on the server
