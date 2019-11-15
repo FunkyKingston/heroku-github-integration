@@ -24,8 +24,12 @@ The youtube channel *Traversy Media* contains many tutorials on the topic of Fla
 ...
 
 
-### Examples of more features to implement
+### To do: Features to implement
 
-- Use *wtforms* instead of standard forms
+- Use *gunicorn* instead of the internal Flask server
 - Add password encryption (e.g. using *sha256_crypt* from *passlib.hash*)
+- Use *wtforms* instead of standard forms
+- Freshen up the design of the page (adapt the current use of bootstrap, add some css, logo pictures, ...)
 - Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
+
+
