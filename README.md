@@ -17,3 +17,15 @@ The youtube channel *Traversy Media* contains many tutorials on the topic of Fla
 - *Python Flask From Scratch (5 parts)*, https://www.youtube.com/watch?v=zRwy8gtgJ1A
 - *REST API With Flask & SQL Alchemy*, https://www.youtube.com/watch?v=PTZiDnuC86g
 - *Build & Deploy A Python Web App | Flask, Postgres & Heroku*, https://www.youtube.com/watch?v=w25ea_I89iM
+
+
+## Expanding on the Flask app
+
+...
+
+
+### Examples of more features to implement
+
+- Use *wtforms* instead of standard forms
+- Add password encryption (e.g. using *sha256_crypt* from *passlib.hash*)
+- Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
