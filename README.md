@@ -31,5 +31,6 @@ The youtube channel *Traversy Media* contains many tutorials on the topic of Fla
 - Use *wtforms* instead of standard forms
 - Freshen up the design of the page (adapt the current use of bootstrap, add some css, logo pictures, ...)
 - Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
+- Separate app.py into \_\_init__.py (initialize app and database in here) and routes.py, place in a package (a folder) and run (app.run()) it from a run.py outside of the folder
 
 
