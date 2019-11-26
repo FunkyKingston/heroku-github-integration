@@ -4,8 +4,8 @@
 
 The main idea of this repository is to try out Heroku's continuous delivery workflow, connecting a Heroku *pipeline* (https://devcenter.heroku.com/articles/pipelines) to this GitHub repository. The pipeline always contains the following:
 
-- A public facing webpage (/Heroku app) is hosted at https://funky-github-productionapp.herokuapp.com/
-- In addition, a staging app, representing the project's master development branch, is available at https://funky-github-stagingapp.herokuapp.com/
+- A public facing webpage (/Heroku app): https://funky-github-productionapp.herokuapp.com/
+- A staging app, representing the project's master development branch: https://funky-github-stagingapp.herokuapp.com/
 
 Furthermore, by enabling *review apps* at Heroku (https://devcenter.heroku.com/articles/review-apps-new), pull requests into the master branch can be reviewed in a temporary *review app* before being integrated into the master branch/staging app. To this end, a second (local) git branch (named *develop*), was used to push code to GitHub, after which the GitHub GUI was used to create pull requests into the master branch. (The *develop* branch is currently deleted from the repository.)
 
