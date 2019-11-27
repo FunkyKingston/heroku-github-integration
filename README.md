@@ -5,7 +5,7 @@
 The main idea of this repository is to try out Heroku's continuous delivery workflow, connecting a Heroku *pipeline* (https://devcenter.heroku.com/articles/pipelines) to this GitHub repository. The pipeline always contains the following:
 
 - A public facing webpage (/Heroku app): https://funky-github-productionapp.herokuapp.com/
-- A staging app, representing the project's master development branch: https://funky-github-stagingapp.herokuapp.com/
+- A *staging app*, representing the project's master development branch. At any time, the state of the staging app can be promoted to the public facing *production app*: https://funky-github-stagingapp.herokuapp.com/
 
 Furthermore, by enabling *review apps* at Heroku (https://devcenter.heroku.com/articles/review-apps-new), pull requests into the master branch can be reviewed in a temporary *review app* before being integrated into the master branch/staging app. To this end, a second (local) git branch (named *develop*), was used to push code to GitHub, after which the GitHub GUI was used to create pull requests into the master branch. (The *develop* branch is currently deleted from the repository.)
 
@@ -15,9 +15,9 @@ This excellent tutorial was used for guidance:
 
 ## Hosting a Flask app using Heroku and Heroku Add-ons
 
-To gain familiarity with Heroku hosting, including its *Config Vars* and *Add-ons*, a small Flask app was created and configured appropriately. The app connects to a PostgreSQL database provided by the *Heroku Postgres Add-on* service, https://elements.heroku.com/addons/heroku-postgresql. When enabling this add-on (On the *Resource* page of the app in the Heroku dashboard), the *Config Var* `DATABASE_URL` is set automatically. "Config vars are exposed to your app’s code as environment variables" basically tells us what we need to know about them (https://devcenter.heroku.com/articles/config-vars).
+To gain familiarity with Heroku hosting, including its *Config Vars* and *Add-ons*, a small Flask app was created and configured appropriately. The app connects to a PostgreSQL database provided by the *Heroku Postgres Add-on* service, https://elements.heroku.com/addons/heroku-postgresql. When enabling this add-on (On the *Resource* page of the app in the Heroku dashboard), the *Config Var* `DATABASE_URL` is set automatically.
 
-In order to use *SQLAlchemy* with the Flask app, the app is configured with the `SQLALCHEMY_DATABASE_URI` environment variable read from the Heroku *Config Var*:
+In order to use *SQLAlchemy* with the Flask app, the app is configured by setting `SQLALCHEMY_DATABASE_URI` in `app.config[]`. "*Config Vars* are exposed to your app’s code as environment variables" (https://devcenter.heroku.com/articles/config-vars), so `DATABASE_URL` is retrieved as:
 
 ```SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')```
 
