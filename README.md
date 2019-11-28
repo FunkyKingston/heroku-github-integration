@@ -23,23 +23,39 @@ In order to use *SQLAlchemy* with the Flask app, the app is configured by settin
 
 
 The youtube channel *Traversy Media* contains many tutorials on the topic of Flask, including database integration. The code in this repository is inspired by the following highly recommended tutorials:
-- *Python Flask From Scratch (5 parts)*, https://www.youtube.com/watch?v=zRwy8gtgJ1A
-- *REST API With Flask & SQL Alchemy*, https://www.youtube.com/watch?v=PTZiDnuC86g
-- *Build & Deploy A Python Web App | Flask, Postgres & Heroku*, https://www.youtube.com/watch?v=w25ea_I89iM
+1. *Python Flask From Scratch (5 parts)*, https://www.youtube.com/watch?v=zRwy8gtgJ1A
+2. *REST API With Flask & SQL Alchemy*, https://www.youtube.com/watch?v=PTZiDnuC86g
+3. *Build & Deploy A Python Web App | Flask, Postgres & Heroku*, https://www.youtube.com/watch?v=w25ea_I89iM
 
 
 ## About the Flask app
 
-...
+The app is a page where it is possible to make posts with food recipes! There is a simple login functionality in place, such that only logged in users are allowed to make posts. The data about users and recipes are are stored and fetched from a PostgreSQL database.
+
 
 ### Setting up the database
 
-...
+Video (3.) in the previous section shows the necessary steps to set up the database both locally as well as on Heroku. In short:
+
+1. Go to pgadmin and under *Databases*, create a database named *flask_recipe_page* (which matches the database name specified in config.py as part of the `SQLALCHEMY_DATABASE_URI` path).
+
+Heroku ...
+
+2. Enter a python shell (from the folder that contains app.py) and run: 
+
+```
+from app import db
+db.create_all()
+```
+
+On Heroku, ...
+
 
 ### To do: Some features that could be nice to implement
 
-- Use *gunicorn* instead of the internal Flask server, https://devcenter.heroku.com/articles/python-gunicorn
-- Separate app.py into \_\_init__.py (initialize app and database in here) and routes.py, place in a package (a folder) and run (app.run()) it from a run.py outside of the folder
-- Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
+- Improve the form-functionality for user registration and posting recipes. E.g. *wtforms* provides nice functionality for form validation, password confirmation, etc.
+- Add user control, such that a logged in user only can edit/delete one's own articles (e.g. using *flask-login*, https://hackersandslackers.com/authenticating-users-with-flask-login/).
+- Use *gunicorn* instead of the internal Flask server, https://devcenter.heroku.com/articles/python-gunicorn. Make sure it's installed (add gunicorn and suitable version to requirements.txt) and insert *web: gunicorn app:app* (*web: gunicorn <name_of_python_file>:<name_of_app_to_run>*) into the Procfile. 
+- Separate app.py into \_\_init__.py (initialize app and database in here) and routes.py, place in a package (a folder) and run (app.run()) it from a run.py outside of the folder.
 
 
