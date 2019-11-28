@@ -195,13 +195,14 @@ def add_recipe():
 
 # when ran on heroku, __name__ is set to "web", since if this file is being imported from another module, __name__ isset to that module’s name.
 if __name__ == '__main__':
-  app.run(debug=True)
+  #app.secret_key = 'secret123' # (now set in config.py) necessary for using flask 'session'. not too worried about displaying this secret_key ...!
+  app.run(debug=True) # only called if run locally, Heroku calls app.py from elsewhere so __name__ != '__main__'
 
 
 # change from flask's internal web server, use gunicorn 
 # (which is a wsgi, web server gateway interface):
 # add gunicorn to requirements.txt, pip install it in the env locally and use the same version!
-# change the Procfile to, "web: gunicorn app:app"
+# change the Procfile to, "web: gunicorn app:app" (web: gunicorn <name_of_python_file>:<name_of_app_to_run>)
 # - also, in a file runtime.txt, add "python-3.7.3" (https://devcenter.heroku.com/articles/python-runtimes)
 
 

@@ -8,14 +8,13 @@ env = 'heroku'
 if env == 'dev':
   # 'postgresql://<username>:<password>@<uri>/<name of database>'
   SQLALCHEMY_DATABASE_URI = 'postgresql://funkykingston:123456@localhost/flask_recipe_page' 
-  # make sure to create the database first, e.g. (local case) create a database named 'flask_recipe_page' in pgadmin
-else:
-#elif env == 'heroku':
+  # - for the local case, make sure to create the database first, 
+  #   i.e. create a database named 'flask_recipe_page' in pgadmin
+  SECRET_KEY = 'secret123' # necessary for using flask 'session'. not too worried about displaying this secret_key ...
+else: # elif env == 'heroku':
   SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-  SECRET_KEY = os.environ.get('SECRET KEY') # not in use with the current Heroku hosted postgres database, would use e.g. for standalone mongodb atlas
-#else:
-  # to do: handle this case
+  SECRET_KEY = os.environ.get('SECRET_KEY') # necessary for using flask 'session'. 
 
-app.secret_key = 'secret123' # necessary for using flask 'session'. not too worried about displaying this secret_key ...!
+
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
