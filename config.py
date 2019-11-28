@@ -2,8 +2,8 @@ import os
 
 print('running config.py')
 
-env = 'dev'
-#env = 'heroku'
+#env = 'dev'
+env = 'heroku'
 
 if env == 'dev':
   # 'postgresql://<username>:<password>@<uri>/<name of database>'
