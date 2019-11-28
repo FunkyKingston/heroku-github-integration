@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+<!-- layout.html wraps the block body in a .container-fluid div -->
+{% block body %}
+  
+<h1>Temporary dashboard page...</h1>
+
+<p>Logged in as {{ session.username }}.</p>
+
+<div class="buttons-div">
+  <a class="btn btn-lg buttons" href="/add_recipe">Add New Recipe</a>
+</div>
+
+{% for post in posts %}
+<div class="posts media">
+  <img class="rounded-circle post-img" src="../static/default.jpg">
+  <div class="media-body">
+    <div class="post-metadata">
+      {{ post.author.username }} <small class="text-muted">{{ post.pub_date.year }}-{{ post.pub_date.month }}-{{ post.pub_date.day }}</small>
+    </div>
+    <h2>{{post.name}}</h2>
+    <p>{{post.description}}</p>
+  </div>
+</div>
+{% endfor %}
+
+<!-- TO DO: 
+     - make another, simpler listing of posts/recipes for the dashboard page
+     - for each post, add edit & delete buttons and their functionality ... 
+-->
+
+{% endblock %}

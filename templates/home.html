@@ -1,5 +1,18 @@
 {% extends 'layout.html' %}
 
+<!-- layout.html wraps the block body in a .container-fluid div -->
 {% block body %}
-  Hello World from Heroku, integrated with GitHub! - var = {{var}}
+
+<div class="text-center" id="content-home">
+  <h1>Welcome to <i>Funky Recipes</i></h1>
+  <p>This is a simple (incomplete) Python Flask app, used mainly to play around with hosting at <a target="_blank" href="https://heroku.com/">Heroku</a>, including using <i>Heroku Pipelines, Add-Ons and Config Vars</i>.</p>
+  
+  {% if session.logged_in == NULL %}
+  <div class="buttons-div">
+    <a href="/register" class="btn btn-lg buttons">Register</a>
+    <a href="/login" class="btn btn-lg buttons">Login</a>
+  </div>
+  {% endif %}
+</div>
+  
 {% endblock %}

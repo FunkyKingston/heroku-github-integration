@@ -1,0 +1,82 @@
+
+/* "FULL RELOAD" IN CHROME - SHIFT+RELOAD BUTTON */
+
+body {
+  background: #fafafa;
+  color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-custom {
+  background: #5f788a;
+}
+
+.container-fluid {
+  max-width: 900px;
+  /*background: red;*/
+  padding: 0px 20px; /*0px top,bottom, 20px left,right*/
+}
+
+/* for <a> elements within a <div> of class container-fluid */
+.container-fluid a {
+  text-decoration: none;
+}
+
+
+#content-home {
+  margin:20px 0px !important; /*20px top,bottom*/
+}
+
+.posts, #content-home {
+  background: #fcb;
+  padding:10px 20px; /* 10 top,bottom & 20 left,right*/
+  border:1px solid #333;
+  border-radius:15px;
+  margin:10px 0px;
+}
+
+.post-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 20px;
+}
+
+.post-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.buttons {
+  background: rgb(52,58,64);
+  color: #fff;
+}
+
+/*.buttons-div a, .buttons-div a:hover, .buttons-div input, .buttons-div input:hover {*/
+.buttons-div a:hover, .buttons-div input:hover {
+  color: cadetblue;
+}
+
+.form-group {
+	margin: 1rem 0;
+}
+
+.message {
+	background: yellow;
+}
+
+/*
+.profile-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+*/

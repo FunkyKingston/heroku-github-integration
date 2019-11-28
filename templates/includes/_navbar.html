@@ -1,20 +1,29 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">HerokuGitHubIntegration</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-      
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-    <li class="nav-item"><a class="nav-link" href="/articles">Articles</a></li>
-  </ul>
+<nav class="navbar navbar-expand-md navbar-dark bg-custom"> 
+<!-- replaced bootstrap's bg-dark with bg-custom -->
+  <div class="container-fluid">
 
-  <ul class="nav navbar-nav navbar-right">
-    <li class="nav-item"><a class="nav-link" href="/about">Register</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-  </ul>
-          
-  </div>
+    <a class="navbar-brand" href="#">Funky Recipes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/recipes">Recipes</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        {% if session.logged_in %}
+          <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>      
+        {% endif %}
+      </ul>
+    </div> 
+
+  </div> <!-- /container-fluid -->
 </nav>

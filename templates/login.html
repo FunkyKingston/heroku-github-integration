@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+<!-- layout.html wraps the block body in a .container-fluid div -->
+{% block body %}
+  
+<h1>Login</h1>
+
+{% if message %}
+  <span class="message">{{ message }}</span> <!-- message | safe -->
+{% endif %}
+
+<!-- 
+After logout a redirect is given to this login page
+- can i pass a message with the redirect function? 
+- or do i need to / am i better off using flash messages? (which can handle this case) 
+  https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ 
+-->
+
+<form action="/login" method="POST">
+  <div class="form-group">
+    <h3>Username</h3>
+    <input type="text" name="username" placeholder="Enter your username"/>
+  </div>
+  <div class="form-group">
+    <h3>Password</h3>
+    <input type="text" name="password" placeholder="Enter your password"/>
+  </div>
+  <div class="buttons-div">
+    <input type="submit" value="Log in" class="btn btn-lg buttons"/>
+  </div>
+</form>
+
+
+{% endblock %}

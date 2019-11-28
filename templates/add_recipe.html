@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Add Recipe</h1>
+
+{% if message %}
+  <span class="message">{{ message }}</span> <!-- message | safe -->
+{% endif %}
+
+<!-- value of action should match the route URI, @app.route('/add_article', ...)  -->
+<form action="/add_recipe" method="POST"> 
+
+<!-- name, description, body, category, pub_date, user_id -->
+  <div class="form-group">
+    <h3>Name</h3>
+    <input type="text" name="name" placeholder="Name of the recipe">
+  </div>
+
+  <div class="form-group">
+      <h3>Description</h3>
+      <input type="text" name="description" placeholder="Write a nice description">
+  </div>
+
+  <div class="form-group">
+    <h3>Body</h3> - TO DO: fix more suitable form & database table/document structure!
+    <input type="text" name="body" placeholder="Ingredients, Instructions ...">
+  </div>
+
+  <div class="form-group">
+    <h3>Category</h3>
+    <select name="category">
+      <option value="">Choose...</option>
+      <option value="Welcome Snack">Welcome Snack</option>
+      <option value="Appetizer">Appetizer</option>
+      <option value="Starter">Starter</option>
+      <option value="Small Dish">Small Dish</option>
+      <option value="Il Primo">Il Primo</option>
+      <option value="Main Course">Main Course</option>
+      <option value="Salad">Salad</option>
+      <option value="Dessert">Dessert</option>
+      <option value="Breakfast Delight">Breakfast Delight</option>
+      <option value="Cocktail">Cocktail</option>
+      <option value="Tasty Non-alcohol Beverage">Tasty Non-alcohol beverage</option>
+      <option value="Apertif">Apertif</option>
+    </select>
+  </div>
+
+  <div class="buttons-div">
+    <input type="submit" value="Add" class="btn btn-lg buttons"/>  
+  </div>
+</form>
+
+{% endblock %}

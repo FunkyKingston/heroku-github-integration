@@ -2,15 +2,25 @@
 <html>
   <head>
   <meta charset='utf-8'>
-  <title>HerokuGitHubIntegration</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Funky Recipes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="../static/nonbootstrap.css">
   </head>
   <body>
     {% include 'includes/_navbar.html' %}
-    <div class="container-fluid">
+    <div class="container-fluid"> <!-- container is resized in steps, container-fluid smoothly -->
+      <!-- bootstrap grid system, total 12 columns, e.g. col-md-8 uses 8 -->
+      <!-- <div class="col-md-12"></div> -->
       {% block body %}{% endblock %}
+      
+      <!--<div class="col-md-4">Sidebar</div>-->
+
     </div>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- JQuery - "must come first" necessary for the hamburged-toggled menu in reduced-size display mode -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  
+  <!-- JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- about 'integrity' and 'crossorigin' properties: https://stackoverflow.com/questions/32039568/what-are-the-integrity-and-crossorigin-attributes-->
   </body>
 </html>
 
