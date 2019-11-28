@@ -195,11 +195,6 @@ def add_recipe():
 
 # when ran on heroku, __name__ is set to "web", since if this file is being imported from another module, __name__ isset to that module’s name.
 if __name__ == '__main__':
-  app.secret_key='secret123' # necessary for using flask 'session'
-  # otherwise this error when pressing the form: 
-  # "RuntimeError: The session is unavailable because no 
-  # secret key was set.  Set the secret_key on the 
-  # application to something unique and secret."
   app.run(debug=True)
 
 

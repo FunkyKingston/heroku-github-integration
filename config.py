@@ -16,4 +16,6 @@ else:
 #else:
   # to do: handle this case
 
+app.secret_key = 'secret123' # necessary for using flask 'session'. not too worried about displaying this secret_key ...!
+
 SQLALCHEMY_TRACK_MODIFICATIONS = False
