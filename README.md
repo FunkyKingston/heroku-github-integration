@@ -30,25 +30,24 @@ The youtube channel *Traversy Media* contains many tutorials on the topic of Fla
 
 ## About the Flask app
 
-The app is a page where it is possible to make posts with food recipes! There is a simple login functionality in place, such that only logged in users are allowed to make posts. The data about users and recipes are are stored and fetched from a PostgreSQL database.
+The app runs a webpage where it is possible to make posts about your favorite food recipes! There is a simple login functionality in place, such that only logged in users are allowed to make posts. The data about users and recipes are are stored and fetched from a PostgreSQL database, either run locally or on Heroku (specified by `env` in config.py).
 
 
 ### Setting up the database
 
-Video (3.) in the previous section shows the necessary steps to set up the database both locally as well as on Heroku. In short:
+Video (3.) in the previous section shows the steps to set up the database both locally as well as on Heroku. In short:
 
-1. Go to pgadmin and under *Databases*, create a database named *flask_recipe_page* (which matches the database name specified in config.py as part of the `SQLALCHEMY_DATABASE_URI` path).
+1. Go to pgadmin and under *Databases*, create a database named *flask_recipe_page* (which matches the database name specified in config.py as part of the `SQLALCHEMY_DATABASE_URI` path). No such step is necessary for Postgres on Heroku.
 
-Heroku ...
 
 2. Enter a python shell (from the folder that contains app.py) and run: 
 
 ```
-from app import db
-db.create_all()
+>>> from app import db
+>>> db.create_all()
 ```
 
-On Heroku, ...
+To access a python shell inside the Heroku app, run in a local terminal: `heroku run python -a funky-github-stagingapp`
 
 
 ### To do: Some features that could be nice to implement
