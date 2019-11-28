@@ -32,14 +32,14 @@ The youtube channel *Traversy Media* contains many tutorials on the topic of Fla
 
 ...
 
+### Setting up the database
 
-### To do: Features to implement
+...
 
-- Use *gunicorn* instead of the internal Flask server
-- Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
-- Add password encryption (e.g. using *sha256_crypt* from *passlib.hash*)
-- Use *wtforms* instead of standard forms
-- Freshen up the design of the page (adapt the current use of bootstrap, add some css, logo pictures, ...)
+### To do: Some features that could be nice to implement
+
+- Use *gunicorn* instead of the internal Flask server, https://devcenter.heroku.com/articles/python-gunicorn
 - Separate app.py into \_\_init__.py (initialize app and database in here) and routes.py, place in a package (a folder) and run (app.run()) it from a run.py outside of the folder
+- Add user control, such that a logged in user only can edit/delete one's own articles (e.g. with *Flask-Login*, https://hackersandslackers.com/authenticating-users-with-flask-login/)
 
 
