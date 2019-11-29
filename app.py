@@ -24,10 +24,9 @@ db.init_app(app)
 # - run python in a terminal and >>> from app import db >>> db.create_all() 
 #   - this creates the tables, that can now be seen e.g. in pgadmin
 # On Heroku: 
-# - 
-# - go to the dashboard->More->Run console, type in python and you get a terminal!
-#   (or use Heroku's CLI, by running "heroku run python" in a local terminal)
-
+# - access a python shell within the Heroku app by $ heroku run python -a funky-github-stagingapp
+#   (or go to the dashboard->More->Run console, type in python and you get a terminal!)
+#   - from app import db, User, Recipe -> can play around with the database tables to check things etc.
 
 
 
@@ -37,6 +36,7 @@ posts = [
     'name': 'Kristina\'s Muesli',
     'description': 'Add fresh fruit/berries and yoghurt!',
     'body': 'Oats, Nuts, Coconut flakes, ...',
+    'category': 'Breakfast Delight',
     'date_posted': 'November 26, 2019'
   },
   {
@@ -44,6 +44,7 @@ posts = [
     'name': 'Kalle\'s Jambalaya',
     'description': 'Open up a bottle of hungarian "finvin"',
     'body': 'Lots of veggies and love, some wine for the chef',
+    'category': 'Main Course',
     'date_posted': 'November 27, 2019'  
   },
   {
@@ -51,6 +52,7 @@ posts = [
     'name': 'Kalle\'s Floor-Marinated Macaroni',
     'description': 'The 3 second rule does not apply',
     'body': 'Fast macaroni. Use water tower floor for best result',
+    'category': 'Il Primo',
     'date_posted': 'October 10, 2007'
   }
 ]
@@ -165,10 +167,10 @@ def add_recipe():
     #if session['logged_in'] == True:
       
     current_user = User.query.filter_by(username=session['username']).first()
-    if user:
+    if current_user:
       user_id = current_user.id
       recipe = Recipe(name, description, body, category, user_id)
-      print(recipe)
+      # print(recipe)
       # recipe.save() # does this also work? anyway, one advantage of add, commit - can commit multiple changes simultaneously
       db.session.add(recipe) # https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
       db.session.commit()
